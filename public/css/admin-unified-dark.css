@@ -1,0 +1,488 @@
+/* ADMIN GLOBAL DARK MODE + TABLE FIX v2 */
+html.dark-mode,
+html.dark-mode body,
+body.dark-mode,
+body.admin-dark{
+    background:#0F172A !important;
+    background-image:none !important;
+    color:#F8FAFC !important;
+}
+
+html.dark-mode body,
+body.dark-mode,
+body.admin-dark{ color-scheme:dark; }
+
+body.dark-mode .page-wrapper,
+body.admin-dark .page-wrapper,
+html.dark-mode .page-wrapper,
+body.dark-mode .container,
+body.admin-dark .container,
+html.dark-mode .container,
+body.dark-mode .page,
+body.admin-dark .page,
+html.dark-mode .page{
+    background:#0F172A !important;
+    color:#F8FAFC !important;
+}
+
+body.dark-mode .top,
+body.admin-dark .top,
+html.dark-mode .top,
+body.dark-mode .topbar,
+body.admin-dark .topbar,
+html.dark-mode .topbar,
+body.dark-mode .page-header,
+body.admin-dark .page-header,
+html.dark-mode .page-header{
+    background:transparent !important;
+    color:#F8FAFC !important;
+}
+
+body.dark-mode .back,
+body.admin-dark .back,
+html.dark-mode .back,
+body.dark-mode .back-link,
+body.admin-dark .back-link,
+html.dark-mode .back-link,
+body.dark-mode .nav-link,
+body.admin-dark .nav-link,
+html.dark-mode .nav-link{
+    color:#86EFAC !important;
+}
+
+body.dark-mode .header,
+body.admin-dark .header,
+html.dark-mode .header{
+    background:linear-gradient(135deg,#064E2A,#0F6B3A) !important;
+    color:#FFFFFF !important;
+    border:1px solid rgba(134,239,172,0.20) !important;
+    box-shadow:0 18px 45px rgba(0,0,0,0.35) !important;
+}
+
+body.dark-mode .header h1,
+body.admin-dark .header h1,
+html.dark-mode .header h1,
+body.dark-mode .header p,
+body.admin-dark .header p,
+html.dark-mode .header p,
+body.dark-mode .header span,
+body.admin-dark .header span,
+html.dark-mode .header span{
+    color:#FFFFFF !important;
+}
+
+body.dark-mode .summary-card,
+body.admin-dark .summary-card,
+html.dark-mode .summary-card,
+body.dark-mode .panel,
+body.admin-dark .panel,
+html.dark-mode .panel,
+body.dark-mode .section,
+body.admin-dark .section,
+html.dark-mode .section,
+body.dark-mode .message-card,
+body.admin-dark .message-card,
+html.dark-mode .message-card,
+body.dark-mode .table-card,
+body.admin-dark .table-card,
+html.dark-mode .table-card,
+body.dark-mode .empty,
+body.admin-dark .empty,
+html.dark-mode .empty,
+body.dark-mode .empty-state,
+body.admin-dark .empty-state,
+html.dark-mode .empty-state{
+    background:#111827 !important;
+    color:#F8FAFC !important;
+    border-color:#1E293B !important;
+    box-shadow:0 18px 45px rgba(0,0,0,0.28) !important;
+}
+
+body.dark-mode .summary-card span,
+body.admin-dark .summary-card span,
+html.dark-mode .summary-card span,
+body.dark-mode .panel-top h2,
+body.admin-dark .panel-top h2,
+html.dark-mode .panel-top h2,
+body.dark-mode .section h2,
+body.admin-dark .section h2,
+html.dark-mode .section h2,
+body.dark-mode .page-header h1,
+body.admin-dark .page-header h1,
+html.dark-mode .page-header h1,
+body.dark-mode .message-top h3,
+body.admin-dark .message-top h3,
+html.dark-mode .message-top h3{
+    color:#86EFAC !important;
+}
+
+body.dark-mode .summary-card strong,
+body.admin-dark .summary-card strong,
+html.dark-mode .summary-card strong,
+body.dark-mode .stat strong,
+body.admin-dark .stat strong,
+html.dark-mode .stat strong{
+    color:#86EFAC !important;
+}
+
+body.dark-mode .page-header p,
+body.admin-dark .page-header p,
+html.dark-mode .page-header p,
+body.dark-mode .sender,
+body.admin-dark .sender,
+html.dark-mode .sender,
+body.dark-mode .date,
+body.admin-dark .date,
+html.dark-mode .date,
+body.dark-mode .empty,
+body.admin-dark .empty,
+html.dark-mode .empty,
+body.dark-mode .empty-state,
+body.admin-dark .empty-state,
+html.dark-mode .empty-state,
+body.dark-mode .student-email,
+body.admin-dark .student-email,
+html.dark-mode .student-email{
+    color:#CBD5E1 !important;
+}
+
+body.dark-mode table,
+body.admin-dark table,
+html.dark-mode table{ background:#111827 !important; color:#F8FAFC !important; }
+
+body.dark-mode th,
+body.admin-dark th,
+html.dark-mode th{
+    background:#0B1220 !important;
+    color:#CBD5E1 !important;
+    border-color:#1E293B !important;
+}
+
+body.dark-mode td,
+body.admin-dark td,
+html.dark-mode td{
+    background:#111827 !important;
+    color:#E5E7EB !important;
+    border-color:#1E293B !important;
+}
+
+body.dark-mode tr:hover td,
+body.admin-dark tr:hover td,
+html.dark-mode tr:hover td,
+body.dark-mode .clickable-row:hover td,
+body.admin-dark .clickable-row:hover td,
+html.dark-mode .clickable-row:hover td{ background:#0B1220 !important; }
+
+body.dark-mode .student-name,
+body.admin-dark .student-name,
+html.dark-mode .student-name,
+body.dark-mode .claimant-name,
+body.admin-dark .claimant-name,
+html.dark-mode .claimant-name,
+body.dark-mode .item-name,
+body.admin-dark .item-name,
+html.dark-mode .item-name,
+body.dark-mode .claim-item-name,
+body.admin-dark .claim-item-name,
+html.dark-mode .claim-item-name{ color:#F8FAFC !important; }
+
+body.dark-mode .claimant-matric,
+body.admin-dark .claimant-matric,
+html.dark-mode .claimant-matric{ color:#CBD5E1 !important; }
+
+body.dark-mode input,
+body.admin-dark input,
+html.dark-mode input,
+body.dark-mode textarea,
+body.admin-dark textarea,
+html.dark-mode textarea,
+body.dark-mode select,
+body.admin-dark select,
+html.dark-mode select,
+body.dark-mode .search-box,
+body.admin-dark .search-box,
+html.dark-mode .search-box{
+    background:#0B1220 !important;
+    color:#F8FAFC !important;
+    border-color:#334155 !important;
+}
+
+body.dark-mode input::placeholder,
+body.admin-dark input::placeholder,
+html.dark-mode input::placeholder{ color:#94A3B8 !important; }
+
+body.dark-mode .message-body,
+body.admin-dark .message-body,
+html.dark-mode .message-body{
+    background:#0B1220 !important;
+    color:#E5E7EB !important;
+    border:1px solid #1E293B !important;
+}
+
+body.dark-mode .stat,
+body.admin-dark .stat,
+html.dark-mode .stat{
+    background:#111827 !important;
+    color:#F8FAFC !important;
+    border-color:#1E293B !important;
+    box-shadow:0 18px 45px rgba(0,0,0,0.28) !important;
+}
+body.dark-mode .stat span,
+body.admin-dark .stat span,
+html.dark-mode .stat span{ color:#CBD5E1 !important; }
+
+body.dark-mode .print-btn,
+body.admin-dark .print-btn,
+html.dark-mode .print-btn,
+body.dark-mode .mark-all-btn,
+body.admin-dark .mark-all-btn,
+html.dark-mode .mark-all-btn,
+body.dark-mode .primary-btn,
+body.admin-dark .primary-btn,
+html.dark-mode .primary-btn{
+    background:#0F6B3A !important;
+    color:#FFFFFF !important;
+    border:1px solid #0F6B3A !important;
+}
+
+body.dark-mode .filter-btn,
+body.admin-dark .filter-btn,
+html.dark-mode .filter-btn,
+body.dark-mode .view-btn,
+body.admin-dark .view-btn,
+html.dark-mode .view-btn,
+body.dark-mode .view-student,
+body.admin-dark .view-student,
+html.dark-mode .view-student{
+    background:#1E293B !important;
+    color:#86EFAC !important;
+    border:1px solid #334155 !important;
+}
+
+body.dark-mode .filter-btn.active,
+body.admin-dark .filter-btn.active,
+html.dark-mode .filter-btn.active{
+    background:#052E16 !important;
+    color:#BBF7D0 !important;
+    border-color:#166534 !important;
+}
+
+body.dark-mode .read-btn,
+body.admin-dark .read-btn,
+html.dark-mode .read-btn{ background:#052E16 !important; color:#BBF7D0 !important; border:1px solid #166534 !important; }
+body.dark-mode .delete-btn,
+body.admin-dark .delete-btn,
+html.dark-mode .delete-btn,
+body.dark-mode .logout-btn,
+body.admin-dark .logout-btn,
+html.dark-mode .logout-btn{ background:#3F1218 !important; color:#FCA5A5 !important; border:1px solid #7F1D1D !important; }
+
+body.dark-mode .badge,
+body.admin-dark .badge,
+html.dark-mode .badge,
+body.dark-mode .status-pill,
+body.admin-dark .status-pill,
+html.dark-mode .status-pill,
+body.dark-mode .claim-status-pill,
+body.admin-dark .claim-status-pill,
+html.dark-mode .claim-status-pill,
+body.dark-mode .mini-status,
+body.admin-dark .mini-status,
+html.dark-mode .mini-status{ border:1px solid transparent !important; }
+
+body.dark-mode .pending,
+body.admin-dark .pending,
+html.dark-mode .pending,
+body.dark-mode .status-pending,
+body.admin-dark .status-pending,
+html.dark-mode .status-pending{ background:#451A03 !important; color:#FDBA74 !important; border-color:#9A3412 !important; }
+body.dark-mode .approved,
+body.admin-dark .approved,
+html.dark-mode .approved,
+body.dark-mode .claimed,
+body.admin-dark .claimed,
+html.dark-mode .claimed,
+body.dark-mode .read,
+body.admin-dark .read,
+html.dark-mode .read,
+body.dark-mode .status-approved,
+body.admin-dark .status-approved,
+html.dark-mode .status-approved,
+body.dark-mode .status-claimed,
+body.admin-dark .status-claimed,
+html.dark-mode .status-claimed{ background:#052E16 !important; color:#BBF7D0 !important; border-color:#166534 !important; }
+body.dark-mode .rejected,
+body.admin-dark .rejected,
+html.dark-mode .rejected,
+body.dark-mode .unread,
+body.admin-dark .unread,
+html.dark-mode .unread,
+body.dark-mode .status-rejected,
+body.admin-dark .status-rejected,
+html.dark-mode .status-rejected{ background:#3F1218 !important; color:#FCA5A5 !important; border-color:#7F1D1D !important; }
+
+/* Dashboard claim request panel/table fix */
+body.dark-mode .claims-panel,
+body.admin-dark .claims-panel,
+html.dark-mode .claims-panel{ background:#111827 !important; border:1px solid #1E293B !important; box-shadow:0 18px 45px rgba(0,0,0,0.32) !important; overflow:hidden !important; }
+.claims-panel{ grid-column:1 / -1 !important; width:100% !important; max-width:100% !important; }
+.dashboard-claims-scroll{ width:100% !important; max-height:390px !important; overflow-x:auto !important; overflow-y:auto !important; }
+.claims-table{ width:100% !important; min-width:860px !important; table-layout:fixed !important; border-collapse:collapse !important; }
+.claims-table th,.claims-table td{ padding:14px 16px !important; vertical-align:middle !important; white-space:normal !important; }
+.claims-table th:nth-child(1),.claims-table td:nth-child(1){width:30% !important;}
+.claims-table th:nth-child(2),.claims-table td:nth-child(2){width:22% !important;}
+.claims-table th:nth-child(3),.claims-table td:nth-child(3){width:18% !important;}
+.claims-table th:nth-child(4),.claims-table td:nth-child(4){width:15% !important;}
+.claims-table th:nth-child(5),.claims-table td:nth-child(5){width:15% !important;}
+.claims-table thead th{ position:sticky !important; top:0 !important; z-index:5 !important; }
+.claimant-name,.claim-item-name{ display:block !important; overflow-wrap:anywhere !important; }
+.claimant-matric{ display:block !important; margin-top:4px !important; overflow-wrap:anywhere !important; }
+.view-claim-btn{ display:inline-flex !important; align-items:center !important; justify-content:center !important; padding:9px 16px !important; border-radius:12px !important; background:#EEF2FF !important; color:#1E3A8A !important; font-size:13px !important; font-weight:900 !important; text-decoration:none !important; white-space:nowrap !important; }
+body.dark-mode .view-claim-btn,body.admin-dark .view-claim-btn,html.dark-mode .view-claim-btn{ background:#1E293B !important; color:#86EFAC !important; border:1px solid #334155 !important; }
+
+@media(max-width:800px){ .claims-table{min-width:760px !important;} .table-wrap{overflow-x:auto !important;} }
+
+/* ADMIN LOGOUT BUTTON - DARK MODE LIGHT GREEN */
+html.admin-dark .logout-btn,
+body.admin-dark .logout-btn,
+html.dark-mode .logout-btn,
+body.dark-mode .logout-btn,
+html.admin-dark .admin-logout-btn,
+body.admin-dark .admin-logout-btn,
+html.dark-mode .admin-logout-btn,
+body.dark-mode .admin-logout-btn,
+html.admin-dark form[action="/admin/logout"] button,
+body.admin-dark form[action="/admin/logout"] button,
+html.dark-mode form[action="/admin/logout"] button,
+body.dark-mode form[action="/admin/logout"] button{
+    background:#E8F6EE !important;
+    color:#0F6B3A !important;
+    border:1px solid #BFE7CF !important;
+    box-shadow:none !important;
+}
+
+html.admin-dark .logout-btn:hover,
+body.admin-dark .logout-btn:hover,
+html.dark-mode .logout-btn:hover,
+body.dark-mode .logout-btn:hover,
+html.admin-dark .admin-logout-btn:hover,
+body.admin-dark .admin-logout-btn:hover,
+html.dark-mode .admin-logout-btn:hover,
+body.dark-mode .admin-logout-btn:hover,
+html.admin-dark form[action="/admin/logout"] button:hover,
+body.admin-dark form[action="/admin/logout"] button:hover,
+html.dark-mode form[action="/admin/logout"] button:hover,
+body.dark-mode form[action="/admin/logout"] button:hover{
+    background:#D4F3E0 !important;
+    color:#064E2A !important;
+    border-color:#9DDDB8 !important;
+}
+/* ADMIN USER MANAGEMENT MOBILE OVERFLOW FIX */
+@media(max-width:768px){
+
+    html,
+    body{
+        width:100% !important;
+        max-width:100% !important;
+        overflow-x:hidden !important;
+    }
+
+    .page-wrapper,
+    .container,
+    .main-content,
+    .content,
+    .admin-content,
+    .dashboard-content{
+        width:100% !important;
+        max-width:100% !important;
+        margin:0 !important;
+        padding-left:16px !important;
+        padding-right:16px !important;
+        overflow-x:hidden !important;
+    }
+
+    .header,
+    .page-header,
+    .hero-card,
+    .summary,
+    .summary-grid,
+    .table-card{
+        width:100% !important;
+        max-width:100% !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
+
+    .header{
+        border-radius:22px !important;
+        padding:240 !important;
+        margin-right:0 !important;
+    }
+
+    .header{
+        border-radius:22px !important;
+        padding:24px 18px !important;
+    }
+
+    .header h1,
+    .page-header h1{
+        font-size:26px !important;
+        line-height:1.2 !important;
+        word-break:normal !important;
+    }
+
+    .summary,
+    .summary-grid{
+        display:grid !important;
+        grid-template-columns:1fr !important;
+        gap:14px !important;
+    }
+
+    .summary-card{
+        width:100% !important;
+        max-width:100% !important;
+    }
+
+    .table-card{
+        overflow:hidden !important;
+        border-radius:20px !important;
+    }
+
+    .table-wrap{
+        width:100% !important;
+        max-width:100% !important;
+        overflow-x:auto !important;
+        overflow-y:hidden !important;
+        -webkit-overflow-scrolling:touch !important;
+    }
+
+    .table-wrap table,
+    table{
+        width:100% !important;
+        min-width:760px !important;
+        table-layout:auto !important;
+    }
+
+    th,
+    td{
+        white-space:nowrap !important;
+        padding:12px 14px !important;
+        font-size:13px !important;
+    }
+
+    .student-name,
+    .student-email,
+    .student-matric,
+    .student-phone{
+        max-width:180px !important;
+        overflow:hidden !important;
+        text-overflow:ellipsis !important;
+        white-space:nowrap !important;
+    }
+
+    .view-student,
+    .view-btn,
+    .action-btn{
+        white-space:nowrap !important;
+    }
+}
