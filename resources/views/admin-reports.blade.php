@@ -316,7 +316,7 @@
                             <td><?php echo e($item->reported_by); ?></td>
                             <td><?php echo e($item->category); ?></td>
                             <td><?php echo e($item->location_lost); ?></td>
-                            <td><?php echo e($item->date_lost); ?></td>
+                            <td><?php echo e($item->date_lost_display); ?></td>
                             <td><?php echo e($item->contact_number); ?></td>
                         </tr>
                     <?php endforeach; ?>
@@ -350,7 +350,7 @@
                             <td><?php echo e($item->reported_by); ?></td>
                             <td><?php echo e($item->category); ?></td>
                             <td><?php echo e($item->location_found); ?></td>
-                            <td><?php echo e($item->date_found); ?></td>
+                            <td><?php echo e($item->date_found_display); ?></td>
                             <td>
                                 <span class="badge <?php echo e($item->status); ?>">
                                     <?php echo e(ucfirst($item->status)); ?>

@@ -409,7 +409,7 @@
 
                         <p><strong>Category:</strong> <?php echo e($item->category); ?></p>
                         <p><strong>Location Lost:</strong> <?php echo e($item->location_lost); ?></p>
-                        <p><strong>Date Lost:</strong> <?php echo e($item->date_lost); ?></p>
+                        <p><strong>Date Lost:</strong> <?php echo e($item->date_lost_display); ?></p>
                         <p><strong>Contact:</strong> <?php echo e($item->contact_number); ?></p>
 
                         <span class="status missing">
@@ -461,7 +461,7 @@
 
                         <p><strong>Category:</strong> <?php echo e($item->category); ?></p>
                         <p><strong>Location Found:</strong> <?php echo e($item->location_found); ?></p>
-                        <p><strong>Date Found:</strong> <?php echo e($item->date_found); ?></p>
+                        <p><strong>Date Found:</strong> <?php echo e($item->date_found_display); ?></p>
                         <p><strong>Contact:</strong> <?php echo e($item->contact_number); ?></p>
 
                         <span class="status <?php echo e($statusClass); ?>">

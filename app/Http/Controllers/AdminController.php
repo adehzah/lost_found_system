@@ -276,6 +276,18 @@ class AdminController extends Controller
     ));
 }
 
+public function deleteStudent($id)
+{
+    if (!session('is_admin')) {
+        return redirect('/admin/login');
+    }
+
+    $student = Student::findOrFail($id);
+    $student->delete();
+
+    return redirect('/admin/users')->with('success', 'Student account deleted successfully. Existing reports remain in the system.');
+}
+
 public function markMessageRead($id)
 {
     if (!session('is_admin')) {

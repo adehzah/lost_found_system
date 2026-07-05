@@ -728,7 +728,7 @@
                                     <span class="record-note"><?php echo e($item->description ?? 'No description provided'); ?></span>
                                 </td>
                                 <td data-label="Location Lost"><?php echo e($item->location_lost ?? 'Not provided'); ?></td>
-                                <td data-label="Date Lost"><?php echo e($item->date_lost ? \Illuminate\Support\Carbon::parse($item->date_lost)->format('d/m/Y') : 'Not provided'); ?></td>
+                                <td data-label="Date Lost"><?php echo e($item->date_lost_display); ?></td>
                                 <td data-label="Status">
                                     <span class="status status-<?php echo e(str_replace(' ', '-', strtolower($item->status ?? 'missing'))); ?>">
                                         <?php echo e(ucfirst($item->status ?? 'missing')); ?>
@@ -779,7 +779,7 @@
                                     <span class="record-note"><?php echo e($item->description ?? 'No description provided'); ?></span>
                                 </td>
                                 <td data-label="Location Found"><?php echo e($item->location_found ?? 'Not provided'); ?></td>
-                                <td data-label="Date Found"><?php echo e($item->date_found ? \Illuminate\Support\Carbon::parse($item->date_found)->format('d/m/Y') : 'Not provided'); ?></td>
+                                <td data-label="Date Found"><?php echo e($item->date_found_display); ?></td>
                                 <td data-label="Status">
                                     <span class="status status-<?php echo e(str_replace(' ', '-', strtolower($item->status ?? 'awaiting claim'))); ?>">
                                         <?php echo e(ucfirst($item->status ?? 'awaiting claim')); ?>

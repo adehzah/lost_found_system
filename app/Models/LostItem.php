@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class LostItem extends Model
@@ -25,5 +26,12 @@ class LostItem extends Model
         return $this->image
             ? Storage::disk(config('filesystems.uploads_disk'))->url($this->image)
             : null;
+    }
+
+    public function getDateLostDisplayAttribute(): string
+    {
+        return $this->date_lost
+            ? Carbon::parse($this->date_lost)->format('d/m/Y')
+            : 'Not provided';
     }
 }

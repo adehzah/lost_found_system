@@ -411,7 +411,7 @@
                         <div class="item-meta">
                             <p><strong>Category:</strong> <?php echo e($item->category ?? 'Not provided'); ?></p>
                             <p><strong>Location Found:</strong> <?php echo e($item->location_found ?? 'Not provided'); ?></p>
-                            <p><strong>Date Found:</strong> <?php echo e($item->date_found ?? 'Not provided'); ?></p>
+                            <p><strong>Date Found:</strong> <?php echo e($item->date_found_display); ?></p>
                             <p><strong>Contact:</strong> <?php echo e($item->contact_number ?? 'Not provided'); ?></p>
                         </div>
 

@@ -250,6 +250,49 @@
             letter-spacing:0;
         }
 
+        .date-field{
+            position:relative;
+            display:flex;
+            align-items:center;
+        }
+
+        .date-field .date-input{
+            padding-right:54px;
+        }
+
+        .date-picker-native{
+            position:absolute;
+            right:0;
+            bottom:0;
+            width:1px;
+            height:1px;
+            opacity:0;
+            pointer-events:none;
+        }
+
+        .calendar-btn{
+            position:absolute;
+            right:8px;
+            top:50%;
+            transform:translateY(-50%);
+            width:38px;
+            height:38px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border:1px solid #d1d5db;
+            border-radius:12px;
+            background:white;
+            color:#1E8E5A;
+            cursor:pointer;
+        }
+
+        .calendar-btn svg{
+            width:19px;
+            height:19px;
+            stroke:currentColor;
+        }
+
         input:focus, textarea:focus, select:focus{
             border-color:#1E8E5A;
             background:white;
@@ -410,6 +453,7 @@
                 height:52px !important;
                 min-height:52px !important;
                 padding:12px 14px !important;
+                padding-right:54px !important;
                 font-size:16px !important;
             }
         }
@@ -540,7 +584,15 @@
 
                 <div class="form-group">
                     <label>Date Found</label>
-                    <input type="text" name="date_found" class="date-input" placeholder="dd/mm/yyyy" inputmode="numeric" maxlength="10" pattern="\d{2}/\d{2}/\d{4}" required>
+                    <div class="date-field">
+                        <input type="text" name="date_found" class="date-input" placeholder="dd/mm/yyyy" inputmode="numeric" maxlength="10" pattern="\d{2}/\d{2}/\d{4}" required>
+                        <input type="date" class="date-picker-native" tabindex="-1" aria-hidden="true">
+                        <button type="button" class="calendar-btn" aria-label="Choose date">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="form-group full">
@@ -573,16 +625,43 @@
 
 </div>
 <script>
+    function formatDateInput(input) {
+        var value = input.value.replace(/\D/g, '').slice(0, 8);
+        if (value.length > 4) {
+            input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
+        } else if (value.length > 2) {
+            input.value = value.slice(0, 2) + '/' + value.slice(2);
+        } else {
+            input.value = value;
+        }
+    }
+
     document.querySelectorAll('.date-input').forEach(function (input) {
         input.addEventListener('input', function () {
-            var value = input.value.replace(/\D/g, '').slice(0, 8);
-            if (value.length > 4) {
-                input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
-            } else if (value.length > 2) {
-                input.value = value.slice(0, 2) + '/' + value.slice(2);
+            formatDateInput(input);
+        });
+    });
+
+    document.querySelectorAll('.date-field').forEach(function (field) {
+        var textInput = field.querySelector('.date-input');
+        var nativeInput = field.querySelector('.date-picker-native');
+        var button = field.querySelector('.calendar-btn');
+
+        button.addEventListener('click', function () {
+            if (nativeInput.showPicker) {
+                nativeInput.showPicker();
             } else {
-                input.value = value;
+                nativeInput.click();
             }
+        });
+
+        nativeInput.addEventListener('change', function () {
+            if (!nativeInput.value) {
+                return;
+            }
+
+            var parts = nativeInput.value.split('-');
+            textInput.value = parts[2] + '/' + parts[1] + '/' + parts[0];
         });
     });
 </script>

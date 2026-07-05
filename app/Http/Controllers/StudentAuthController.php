@@ -34,16 +34,48 @@ class StudentAuthController extends Controller
     {
         $request->validate([
             'full_name' => 'required|string|max:255',
-            'matric_number' => 'required|string|max:255|unique:students,matric_number',
-            'email' => 'required|email|max:255|unique:students,email',
+            'matric_number' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
             'phone' => 'required|string|max:30',
             'password' => 'required|string|min:4',
         ]);
 
+        $matricNumber = trim($request->matric_number);
+        $email = strtolower(trim($request->email));
+
+        $existingStudent = Student::whereRaw('LOWER(matric_number) = ?', [strtolower($matricNumber)])
+            ->orWhereRaw('LOWER(email) = ?', [$email])
+            ->first();
+
+        if ($existingStudent) {
+            if ($existingStudent->email_verified_at) {
+                return back()->with('error', 'This student account already exists. Please login instead.');
+            }
+
+            if (
+                strtolower($existingStudent->matric_number) === strtolower($matricNumber) &&
+                strtolower((string) $existingStudent->email) === $email &&
+                Hash::check($request->password, $existingStudent->password)
+            ) {
+                $this->clearStudentSession();
+                $this->clearAdminSession();
+                $this->clearOtpSessions();
+
+                session(['student_registration_id' => $existingStudent->id]);
+
+                $this->sendRegistrationOtp($existingStudent, $otpService);
+
+                return redirect('/register/verify')
+                    ->with('success', 'Your registration is still pending. A new OTP has been sent to your email.');
+            }
+
+            return back()->with('error', 'This matric number or email already has a pending registration. Login with the same details to continue verification.');
+        }
+
         $student = Student::create([
             'full_name' => $request->full_name,
-            'matric_number' => $request->matric_number,
-            'email' => $request->email,
+            'matric_number' => $matricNumber,
+            'email' => $email,
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
@@ -163,7 +195,7 @@ class StudentAuthController extends Controller
             $otpService->send($student, StudentOtpService::PURPOSE_REGISTRATION, StudentOtpService::CHANNEL_EMAIL, $student->email);
 
             return redirect('/register/verify')
-                ->with('error', 'Please verify your email before logging in.');
+                ->with('success', 'Your registration is not verified yet. A new OTP has been sent to your email.');
         }
 
         session([

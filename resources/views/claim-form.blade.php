@@ -372,7 +372,7 @@
 
             <div>
                 <span>Date Found</span>
-                <strong>{{ $foundItem->date_found }}</strong>
+                <strong>{{ $foundItem->date_found_display }}</strong>
             </div>
 
             <div>

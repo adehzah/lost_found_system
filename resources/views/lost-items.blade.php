@@ -392,7 +392,7 @@
                         <div class="item-meta">
                             <p><strong>Category:</strong> <?php echo e($item->category ?? 'Not provided'); ?></p>
                             <p><strong>Location Lost:</strong> <?php echo e($item->location_lost ?? 'Not provided'); ?></p>
-                            <p><strong>Date Lost:</strong> <?php echo e($item->date_lost ?? 'Not provided'); ?></p>
+                            <p><strong>Date Lost:</strong> <?php echo e($item->date_lost_display); ?></p>
                             <p><strong>Contact:</strong> <?php echo e($item->contact_number ?? 'Not provided'); ?></p>
                         </div>
 

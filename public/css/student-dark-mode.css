@@ -1045,6 +1045,13 @@ body.dark-mode .modal-actions{
     border-color:#1E293B !important;
 }
 
+html.dark-mode .calendar-btn,
+body.dark-mode .calendar-btn{
+    background:#1E293B !important;
+    color:#86EFAC !important;
+    border-color:#334155 !important;
+}
+
 /* Student dashboard dark-mode polish */
 html.dark-mode .profile-panel,
 body.dark-mode .profile-panel{

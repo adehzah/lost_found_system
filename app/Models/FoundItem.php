@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class FoundItem extends Model
@@ -30,5 +31,12 @@ class FoundItem extends Model
         return $this->image
             ? Storage::disk(config('filesystems.uploads_disk'))->url($this->image)
             : null;
+    }
+
+    public function getDateFoundDisplayAttribute(): string
+    {
+        return $this->date_found
+            ? Carbon::parse($this->date_found)->format('d/m/Y')
+            : 'Not provided';
     }
 }
