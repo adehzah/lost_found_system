@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login | IBBU Lost & Found</title>
+    <link
+        rel="preload"
+        as="image"
+        href="{{ asset('images/ibbu-register-bg-1280.jpg') }}"
+        imagesrcset="{{ asset('images/ibbu-register-bg-768.jpg') }} 768w, {{ asset('images/ibbu-register-bg-1280.jpg') }} 1280w"
+        imagesizes="100vw"
+    >
 
     <style>
+        :root{
+            --auth-bg-image:url("{{ asset('images/ibbu-register-bg-1280.jpg') }}");
+        }
+
         *{
             margin:0;
             padding:0;
@@ -15,12 +26,14 @@
         body{
             font-family:Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
             min-height:100vh;
+            background-color:#eef4ef;
             background:
                 linear-gradient(rgba(20,90,50,0.12), rgba(20,90,50,0.12)),
-                url("<?php echo asset('images/ibbu-register-bg.jpg'); ?>");
+                var(--auth-bg-image);
             background-size:cover;
             background-position:center;
             background-repeat:no-repeat;
+            background-color:#eef4ef;
             color:#1f2937;
             display:flex;
             align-items:center;
@@ -177,6 +190,10 @@
         }
 
         @media(max-width:900px){
+            :root{
+                --auth-bg-image:url("{{ asset('images/ibbu-register-bg-768.jpg') }}");
+            }
+
             body{
                 justify-content:center;
                 padding:25px;
