@@ -278,7 +278,7 @@
     flex-wrap:wrap;
 }
     </style>
-    <link rel="stylesheet" href="<?php echo asset('css/admin-unified-dark.css'); ?>?v=2">
+    <link rel="stylesheet" href="<?php echo asset('css/admin-unified-dark.css'); ?>?v=6">
 </head>
 
 <body>
@@ -393,6 +393,6 @@
     <?php endif; ?>
 
 </div>
-<script src="<?php echo asset('js/admin-theme-sync.js'); ?>?v=2"></script>
+<script src="<?php echo asset('js/admin-theme-sync.js'); ?>?v=6"></script>
 </body>
 </html>

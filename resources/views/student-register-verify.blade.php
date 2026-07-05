@@ -21,6 +21,7 @@
         .resend-btn{background:#e7edf3;color:#263544;margin-top:10px}
         .back-link{display:block;text-align:center;margin-top:18px;color:#0f5132;text-decoration:none;font-weight:700}
     </style>
+    <link rel="stylesheet" href="{{ asset('css/student-dark-mode.css') }}?v=21">
 </head>
 <body>
 <div class="auth-card">
@@ -60,5 +61,6 @@
 
     <a href="/login" class="back-link">Back to Login</a>
 </div>
+    <script src="{{ asset('js/student-theme.js') }}?v=21"></script>
 </body>
 </html>

@@ -193,6 +193,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/student-dark-mode.css') }}?v=21">
 </head>
 
 <body>
@@ -244,5 +245,6 @@
     }
 </script>
 
+    <script src="{{ asset('js/student-theme.js') }}?v=21"></script>
 </body>
 </html>

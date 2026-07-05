@@ -230,7 +230,7 @@
             }
         }
     </style>\
- <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=18">
+ <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=21">
 
 <body>
 

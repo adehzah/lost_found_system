@@ -603,6 +603,38 @@
             flex-shrink:0;
         }
 
+        .activity-thumb{
+            width:56px;
+            height:56px;
+            flex-shrink:0;
+            overflow:hidden;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius:8px;
+            background:var(--surface);
+            border:1px solid var(--line);
+        }
+
+        .activity-thumb img{
+            width:100%;
+            height:100%;
+            display:block;
+            object-fit:cover;
+        }
+
+        .activity-thumb.is-empty{
+            color:var(--primary);
+            background:var(--primary-soft);
+            border-color:transparent;
+        }
+
+        .activity-thumb.is-empty svg{
+            width:22px;
+            height:22px;
+            stroke:currentColor;
+        }
+
         .activity-content{
             min-width:0;
             flex:1;
@@ -951,6 +983,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/admin-unified-dark.css') }}?v=6">
 </head>
 <body>
 
@@ -1243,12 +1276,18 @@
                                 <div class="activity-list">
                                     @forelse($recentLost->take(4) as $item)
                                         <a href="/lost-items/{{ $item->id }}" class="activity-item">
-                                            <div class="activity-icon stat-icon green">
-                                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                                    <path d="M21 21l-4.3-4.3" stroke-width="2" stroke-linecap="round"/>
-                                                    <path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" stroke-width="2"/>
-                                                </svg>
-                                            </div>
+                                            @if($item->image)
+                                                <div class="activity-thumb">
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->item_name }} image">
+                                                </div>
+                                            @else
+                                                <div class="activity-thumb is-empty">
+                                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                        <path d="M21 21l-4.3-4.3" stroke-width="2" stroke-linecap="round"/>
+                                                        <path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Z" stroke-width="2"/>
+                                                    </svg>
+                                                </div>
+                                            @endif
                                             <div class="activity-content">
                                                 <strong>{{ $item->item_name }}</strong>
                                                 <span>{{ $item->location_lost ?? 'Unknown location' }}</span>
@@ -1266,11 +1305,17 @@
                                 <div class="activity-list">
                                     @forelse($recentFound->take(4) as $item)
                                         <a href="/found-items/{{ $item->id }}" class="activity-item">
-                                            <div class="activity-icon stat-icon blue">
-                                                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                                    <path d="M20 6 9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                            </div>
+                                            @if($item->image)
+                                                <div class="activity-thumb">
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->item_name }} image">
+                                                </div>
+                                            @else
+                                                <div class="activity-thumb is-empty">
+                                                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                                        <path d="M20 6 9 17l-5-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                            @endif
                                             <div class="activity-content">
                                                 <strong>{{ $item->item_name }}</strong>
                                                 <span>{{ $item->location_found ?? 'Unknown location' }}</span>
@@ -1434,12 +1479,14 @@
         const toggle = document.querySelector('.js-admin-theme-toggle');
 
         function savedTheme() {
-            for (let i = 0; i < themeKeys.length; i++) {
-                const value = localStorage.getItem(themeKeys[i]);
+            const canonical = localStorage.getItem('siteTheme');
 
-                if (value === 'dark' || value === 'light') {
-                    return value;
-                }
+            if (canonical === 'dark' || canonical === 'light') {
+                return canonical;
+            }
+
+            if (themeKeys.some(function (key) { return localStorage.getItem(key) === 'dark'; })) {
+                return 'dark';
             }
 
             return 'light';
@@ -1466,7 +1513,8 @@
 
         applyTheme(savedTheme());
 
-        if (toggle) {
+        if (toggle && toggle.dataset.themeBound !== 'true') {
+            toggle.dataset.themeBound = 'true';
             toggle.addEventListener('click', function () {
                 const nextTheme = document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark';
 

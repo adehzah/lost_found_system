@@ -398,7 +398,7 @@
             }
         }
     </style>
- <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=13">
+ <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=21">
 <body>
 <script>
     (function () {

@@ -281,7 +281,7 @@
     font-weight:600;
 }
     </style>
-    <link rel="stylesheet" href="<?php echo asset('css/admin-unified-dark.css'); ?>?v=4">
+    <link rel="stylesheet" href="<?php echo asset('css/admin-unified-dark.css'); ?>?v=6">
 </head>
 
 <body>
@@ -430,6 +430,6 @@
         });
     }
 </script>
-<script src="<?php echo asset('js/admin-theme-sync.js'); ?>?v=4"></script>
+<script src="<?php echo asset('js/admin-theme-sync.js'); ?>?v=6"></script>
 </body>
 </html>

@@ -231,6 +231,7 @@ body.admin-dark .claim-proof-image img{
     border-color:#1F2937;
 }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/admin-unified-dark.css') }}?v=6">
 </head>
 
 <body>
@@ -329,5 +330,6 @@ body.admin-dark .claim-proof-image img{
 
 </div>
 <script src="<?php echo asset('js/theme-sync.js'); ?>?v=1"></script>
+    <script src="{{ asset('js/admin-theme-sync.js') }}?v=6"></script>
 </body>
 </html>

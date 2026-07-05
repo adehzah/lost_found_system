@@ -6,14 +6,19 @@
 .phpactor.json
 .phpunit.result.cache
 /.codex
+/.codex-backups/
 /.cursor/
 /.idea
 /.nova
 /.phpunit.cache
 /.vscode
 /.zed
+/artisan.bat
 /auth.json
+/deployment-packages/
 /node_modules
+/php/
+/php.bat
 /public/build
 /public/fonts-manifest.dev.json
 /public/hot
@@ -25,7 +30,3 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
-".env" 
-".codex-backups/" 
-"deployment-packages/" 
-".phpunit.result.cache" 

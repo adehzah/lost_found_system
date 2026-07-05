@@ -753,3 +753,294 @@ body.dark-mode .back-link,
 body.dark-mode .back-link:visited{
     color:#86EFAC !important;
 }
+
+/* SITE-WIDE DARK MODE COVERAGE v21 */
+html.dark-mode{
+    color-scheme:dark;
+    --primary:#1E8E5A;
+    --primary-dark:#86EFAC;
+    --green:#1E8E5A;
+    --green-dark:#86EFAC;
+    --gold:#FACC15;
+    --ink:#F8FAFC;
+    --muted:#CBD5E1;
+    --line:#334155;
+    --surface:#111827;
+    --soft:#0F172A;
+    --danger:#FCA5A5;
+    --danger-soft:#3F1218;
+}
+
+html.dark-mode body,
+body.dark-mode{
+    background-color:#0F172A !important;
+    color:#F8FAFC !important;
+}
+
+html.dark-mode a,
+body.dark-mode a{
+    color:#86EFAC;
+}
+
+html.dark-mode a:hover,
+body.dark-mode a:hover{
+    color:#BBF7D0;
+}
+
+html.dark-mode .login-panel,
+body.dark-mode .login-panel,
+html.dark-mode .register-panel,
+body.dark-mode .register-panel,
+html.dark-mode .login-card,
+body.dark-mode .login-card,
+html.dark-mode .profile-card,
+body.dark-mode .profile-card,
+html.dark-mode .profile-body,
+body.dark-mode .profile-body,
+html.dark-mode .profile-modal,
+body.dark-mode .profile-modal,
+html.dark-mode .modal-form-box,
+body.dark-mode .modal-form-box,
+html.dark-mode .form-box,
+body.dark-mode .form-box,
+html.dark-mode .card,
+body.dark-mode .card,
+html.dark-mode .box,
+body.dark-mode .box,
+html.dark-mode .notification-card,
+body.dark-mode .notification-card,
+html.dark-mode .header-card,
+body.dark-mode .header-card,
+html.dark-mode .search-card,
+body.dark-mode .search-card{
+    background:rgba(17,24,39,0.94) !important;
+    color:#F8FAFC !important;
+    border-color:#1E293B !important;
+    box-shadow:0 22px 60px rgba(0,0,0,0.34) !important;
+}
+
+html.dark-mode .login-panel,
+body.dark-mode .login-panel,
+html.dark-mode .register-panel,
+body.dark-mode .register-panel{
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(134,239,172,0.18) !important;
+}
+
+html.dark-mode .form-title h1,
+body.dark-mode .form-title h1,
+html.dark-mode .login-card h2,
+body.dark-mode .login-card h2,
+html.dark-mode .profile-card h1,
+body.dark-mode .profile-card h1,
+html.dark-mode .profile-card h2,
+body.dark-mode .profile-card h2,
+html.dark-mode .profile-body h1,
+body.dark-mode .profile-body h1,
+html.dark-mode .profile-body h2,
+body.dark-mode .profile-body h2,
+html.dark-mode .logo-box h3,
+body.dark-mode .logo-box h3,
+html.dark-mode .mobile-brand strong,
+body.dark-mode .mobile-brand strong,
+html.dark-mode .notification-card h3,
+body.dark-mode .notification-card h3{
+    color:#86EFAC !important;
+}
+
+html.dark-mode .form-title p,
+body.dark-mode .form-title p,
+html.dark-mode .logo-box p,
+body.dark-mode .logo-box p,
+html.dark-mode .register-text,
+body.dark-mode .register-text,
+html.dark-mode .login-text,
+body.dark-mode .login-text,
+html.dark-mode .extra-links,
+body.dark-mode .extra-links,
+html.dark-mode .intro,
+body.dark-mode .intro,
+html.dark-mode .profile-header p,
+body.dark-mode .profile-header p,
+html.dark-mode .profile-modal-header p,
+body.dark-mode .profile-modal-header p,
+html.dark-mode .notification-card p,
+body.dark-mode .notification-card p,
+html.dark-mode .subtitle,
+body.dark-mode .subtitle,
+html.dark-mode .mobile-brand span,
+body.dark-mode .mobile-brand span{
+    color:#CBD5E1 !important;
+}
+
+html.dark-mode .navbar,
+body.dark-mode .navbar{
+    background:rgba(17,24,39,0.96) !important;
+    border-color:#1E293B !important;
+}
+
+html.dark-mode .profile-header,
+body.dark-mode .profile-header,
+html.dark-mode .brand-panel,
+body.dark-mode .brand-panel{
+    background:
+        linear-gradient(135deg, rgba(6,78,42,0.94), rgba(15,23,42,0.96)),
+        var(--dark-bg-image, none) !important;
+}
+
+html.dark-mode .profile-trigger,
+body.dark-mode .profile-trigger,
+html.dark-mode .icon-box,
+body.dark-mode .icon-box,
+html.dark-mode .theme-toggle,
+body.dark-mode .theme-toggle,
+html.dark-mode .mobile-nav-btn,
+body.dark-mode .mobile-nav-btn,
+html.dark-mode .mobile-profile-btn,
+body.dark-mode .mobile-profile-btn{
+    background:#1E293B !important;
+    color:#86EFAC !important;
+    border:1px solid #334155 !important;
+}
+
+html.dark-mode .profile-dropdown,
+body.dark-mode .profile-dropdown,
+html.dark-mode .mobile-side-menu,
+body.dark-mode .mobile-side-menu,
+html.dark-mode .mobile-profile-menu,
+body.dark-mode .mobile-profile-menu{
+    background:#111827 !important;
+    color:#F8FAFC !important;
+    border-color:#1E293B !important;
+    box-shadow:0 24px 60px rgba(0,0,0,0.38) !important;
+}
+
+html.dark-mode .profile-dropdown a,
+body.dark-mode .profile-dropdown a,
+html.dark-mode .profile-dropdown button,
+body.dark-mode .profile-dropdown button,
+html.dark-mode .profile-dropdown label,
+body.dark-mode .profile-dropdown label,
+html.dark-mode .mobile-side-menu a,
+body.dark-mode .mobile-side-menu a,
+html.dark-mode .mobile-profile-menu a,
+body.dark-mode .mobile-profile-menu a,
+html.dark-mode .mobile-profile-menu button,
+body.dark-mode .mobile-profile-menu button{
+    color:#F8FAFC !important;
+}
+
+html.dark-mode .profile-dropdown a:hover,
+body.dark-mode .profile-dropdown a:hover,
+html.dark-mode .profile-dropdown button:hover,
+body.dark-mode .profile-dropdown button:hover,
+html.dark-mode .profile-dropdown label:hover,
+body.dark-mode .profile-dropdown label:hover,
+html.dark-mode .mobile-side-menu a:hover,
+body.dark-mode .mobile-side-menu a:hover,
+html.dark-mode .mobile-profile-menu a:hover,
+body.dark-mode .mobile-profile-menu a:hover,
+html.dark-mode .mobile-profile-menu button:hover,
+body.dark-mode .mobile-profile-menu button:hover{
+    background:#1E293B !important;
+    color:#86EFAC !important;
+}
+
+html.dark-mode .readonly,
+body.dark-mode .readonly,
+html.dark-mode input[readonly],
+body.dark-mode input[readonly]{
+    background:#1E293B !important;
+    color:#86EFAC !important;
+    border-color:#334155 !important;
+}
+
+html.dark-mode .file-input,
+body.dark-mode .file-input{
+    background:#0B1220 !important;
+}
+
+html.dark-mode .success,
+body.dark-mode .success,
+html.dark-mode .success-alert,
+body.dark-mode .success-alert{
+    background:#052E1A !important;
+    color:#BBF7D0 !important;
+    border-color:#22C55E !important;
+}
+
+html.dark-mode .error,
+body.dark-mode .error,
+html.dark-mode .error-box,
+body.dark-mode .error-box{
+    background:#3F1218 !important;
+    color:#FECACA !important;
+    border-color:#F87171 !important;
+}
+
+html.dark-mode .btn-secondary,
+body.dark-mode .btn-secondary,
+html.dark-mode .modal-cancel,
+body.dark-mode .modal-cancel,
+html.dark-mode .back-home,
+body.dark-mode .back-home,
+html.dark-mode .extra-links a,
+body.dark-mode .extra-links a,
+html.dark-mode .login-text a,
+body.dark-mode .login-text a,
+html.dark-mode .register-text a,
+body.dark-mode .register-text a{
+    color:#86EFAC !important;
+}
+
+html.dark-mode .save-btn,
+body.dark-mode .save-btn,
+html.dark-mode .modal-save,
+body.dark-mode .modal-save,
+html.dark-mode .submit-btn,
+body.dark-mode .submit-btn,
+html.dark-mode button[type="submit"],
+body.dark-mode button[type="submit"]{
+    background:#0F6B3A !important;
+    color:#FFFFFF !important;
+    border-color:#0F6B3A !important;
+}
+
+html.dark-mode .save-btn:hover,
+body.dark-mode .save-btn:hover,
+html.dark-mode .modal-save:hover,
+body.dark-mode .modal-save:hover,
+html.dark-mode .submit-btn:hover,
+body.dark-mode .submit-btn:hover,
+html.dark-mode button[type="submit"]:hover,
+body.dark-mode button[type="submit"]:hover{
+    background:#15803D !important;
+    color:#FFFFFF !important;
+}
+
+html.dark-mode .modal-cancel,
+body.dark-mode .modal-cancel,
+html.dark-mode .close-modal,
+body.dark-mode .close-modal{
+    background:#1E293B !important;
+    color:#F8FAFC !important;
+    border-color:#334155 !important;
+}
+
+html.dark-mode .avatar-upload-btn,
+body.dark-mode .avatar-upload-btn,
+html.dark-mode .avatar-box,
+body.dark-mode .avatar-box{
+    background:#1E293B !important;
+    color:#86EFAC !important;
+    border-color:#334155 !important;
+}
+
+html.dark-mode hr,
+body.dark-mode hr,
+html.dark-mode .dropdown-divider,
+body.dark-mode .dropdown-divider,
+html.dark-mode .modal-actions,
+body.dark-mode .modal-actions{
+    border-color:#1E293B !important;
+}

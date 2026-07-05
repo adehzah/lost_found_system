@@ -326,6 +326,7 @@
     background:#991b1b;
 }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/admin-unified-dark.css') }}?v=6">
 </head>
 
 <body>
@@ -538,5 +539,6 @@
 
 </div>
 <script src="<?php echo asset('js/theme-sync.js'); ?>?v=1"></script>
+    <script src="{{ asset('js/admin-theme-sync.js') }}?v=6"></script>
 </body>
 </html>

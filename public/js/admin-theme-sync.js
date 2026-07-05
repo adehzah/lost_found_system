@@ -1,12 +1,44 @@
 (function () {
-    const THEME_KEYS = ['adminTheme', 'siteTheme', 'studentTheme'];
+    if (window.LostFoundTheme) {
+        window.LostFoundTheme.apply();
+        window.LostFoundTheme.bind();
+        return;
+    }
 
-    function getSavedTheme() {
-        for (let i = 0; i < THEME_KEYS.length; i++) {
-            const value = localStorage.getItem(THEME_KEYS[i]);
-            if (value === 'dark' || value === 'light') {
-                return value;
-            }
+    const THEME_KEYS = ['siteTheme', 'adminTheme', 'studentTheme'];
+    const TOGGLE_SELECTOR = '.js-admin-theme-toggle, #adminThemeToggle, .js-theme-toggle, #themeToggle, .theme-toggle';
+
+    function readThemeKey(key) {
+        try {
+            return localStorage.getItem(key);
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function writeThemeKey(key, theme) {
+        try {
+            localStorage.setItem(key, theme);
+        } catch (error) {
+            // Ignore blocked storage; the page still updates for this visit.
+        }
+    }
+
+    function savedTheme() {
+        const canonical = readThemeKey('siteTheme');
+
+        if (canonical === 'dark' || canonical === 'light') {
+            return canonical;
+        }
+
+        const legacyValues = THEME_KEYS.map(readThemeKey);
+
+        if (legacyValues.includes('dark')) {
+            return 'dark';
+        }
+
+        if (legacyValues.includes('light')) {
+            return 'light';
         }
 
         return 'light';
@@ -14,61 +46,84 @@
 
     function saveTheme(theme) {
         THEME_KEYS.forEach(function (key) {
-            localStorage.setItem(key, theme);
+            writeThemeKey(key, theme);
+        });
+    }
+
+    function syncToggles(theme) {
+        document.querySelectorAll(TOGGLE_SELECTOR).forEach(function (button) {
+            button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+            button.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
         });
     }
 
     function applyTheme(theme) {
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-            document.documentElement.classList.add('admin-dark');
-            document.body.classList.add('dark-mode');
-            document.body.classList.add('admin-dark');
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            document.documentElement.classList.remove('admin-dark');
-            document.body.classList.remove('dark-mode');
-            document.body.classList.remove('admin-dark');
+        const isDark = theme === 'dark';
+
+        document.documentElement.classList.toggle('dark-mode', isDark);
+        document.documentElement.classList.toggle('admin-dark', isDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+
+        if (document.body) {
+            document.body.classList.toggle('dark-mode', isDark);
+            document.body.classList.toggle('admin-dark', isDark);
+            document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
         }
+
+        syncToggles(theme);
     }
 
-    function syncToggleIcons(theme) {
-        document.querySelectorAll('.js-admin-theme-toggle, .js-theme-toggle, #adminThemeToggle, #themeToggle, .theme-toggle').forEach(function (button) {
-            button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    function toggleTheme() {
+        const nextTheme = document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark';
 
-            if (button.dataset.keepIcon === 'true') {
+        saveTheme(nextTheme);
+        applyTheme(nextTheme);
+
+        window.dispatchEvent(new CustomEvent('lostfound:themechange', {
+            detail: { theme: nextTheme }
+        }));
+    }
+
+    function bindToggles() {
+        document.querySelectorAll(TOGGLE_SELECTOR).forEach(function (button) {
+            if (button.dataset.themeBound === 'true') {
                 return;
             }
 
-            const currentText = button.textContent.trim();
-
-            if (currentText === '☀' || currentText === '☾' || currentText === '◐') {
-                button.textContent = theme === 'dark' ? '☀' : '☾';
-            }
-        });
-    }
-
-    const initialTheme = getSavedTheme();
-    applyTheme(initialTheme);
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const currentTheme = getSavedTheme();
-
-        applyTheme(currentTheme);
-        syncToggleIcons(currentTheme);
-
-        document.querySelectorAll('.js-admin-theme-toggle, .js-theme-toggle, #adminThemeToggle, #themeToggle, .theme-toggle').forEach(function (button) {
+            button.dataset.themeBound = 'true';
             button.addEventListener('click', function (event) {
                 event.preventDefault();
-
-                const nextTheme = document.body.classList.contains('dark-mode') || document.body.classList.contains('admin-dark')
-                    ? 'light'
-                    : 'dark';
-
-                saveTheme(nextTheme);
-                applyTheme(nextTheme);
-                syncToggleIcons(nextTheme);
+                toggleTheme();
             });
         });
-    });
+
+        syncToggles(savedTheme());
+    }
+
+    window.LostFoundTheme = {
+        apply: function () {
+            applyTheme(savedTheme());
+        },
+        bind: bindToggles,
+        current: savedTheme,
+        set: function (theme) {
+            const normalized = theme === 'dark' ? 'dark' : 'light';
+
+            saveTheme(normalized);
+            applyTheme(normalized);
+        },
+        toggle: toggleTheme
+    };
+
+    applyTheme(savedTheme());
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function () {
+            applyTheme(savedTheme());
+            bindToggles();
+        });
+    } else {
+        applyTheme(savedTheme());
+        bindToggles();
+    }
 })();

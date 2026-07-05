@@ -467,6 +467,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="{{ asset('css/admin-unified-dark.css') }}?v=6">
 </head>
 <body>
 
@@ -563,5 +564,6 @@
     </section>
 </main>
 
+    <script src="{{ asset('js/admin-theme-sync.js') }}?v=6"></script>
 </body>
 </html>

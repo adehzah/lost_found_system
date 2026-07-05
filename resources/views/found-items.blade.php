@@ -336,7 +336,7 @@
     margin:18px 0;
 }
 </style>
-<link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=17">
+<link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=21">
 <body>
 <script>
     (function () {
@@ -459,6 +459,7 @@
     </div>
 
 </div>
-<script src="<?php echo asset('js/admin-theme-sync.js'); ?>?v=2"></script>
+<script src="<?php echo asset('js/admin-theme-sync.js'); ?>?v=6"></script>
+    <script src="{{ asset('js/student-theme.js') }}?v=21"></script>
 </body>
 </html>

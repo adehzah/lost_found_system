@@ -22,27 +22,31 @@ class AdminController extends Controller
             'password' => 'required'
         ]);
 
-        $adminPassword = (string) config('admin.password', 'admin123');
+        $adminPassword = config('admin.password');
+
+        if (! is_string($adminPassword) || trim($adminPassword) === '') {
+            return back()->with('error', 'Admin password is not configured.');
+        }
 
         if (hash_equals($adminPassword, (string) $request->password)) {
-    session([
-        'is_admin' => true,
-        'admin_name' => config('admin.name', 'System Admin')
-    ]);
+            session([
+                'is_admin' => true,
+                'admin_name' => config('admin.name', 'System Admin')
+            ]);
 
-    session()->forget([
-        'student_id',
-        'student_name',
-        'student_matric',
-        'student_phone',
-        'student_profile_picture',
-        'student_registration_id',
-        'student_password_reset_id',
-        'student_profile_update',
-    ]);
+            session()->forget([
+                'student_id',
+                'student_name',
+                'student_matric',
+                'student_phone',
+                'student_profile_picture',
+                'student_registration_id',
+                'student_password_reset_id',
+                'student_profile_update',
+            ]);
 
-    return redirect('/admin/dashboard');
-}
+            return redirect('/admin/dashboard');
+        }
 
         return back()->with('error', 'Invalid admin password.');
     }

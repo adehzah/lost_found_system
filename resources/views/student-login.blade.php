@@ -243,6 +243,7 @@ body.dark-mode .forgot-password-link:hover{
     color:#BBF7D0 !important;
 }       
     </style>
+    <link rel="stylesheet" href="{{ asset('css/student-dark-mode.css') }}?v=21">
 </head>
 
 <body>
@@ -309,5 +310,6 @@ body.dark-mode .forgot-password-link:hover{
 
 </div>
 
+    <script src="{{ asset('js/student-theme.js') }}?v=21"></script>
 </body>
 </html>

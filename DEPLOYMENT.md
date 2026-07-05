@@ -2,6 +2,19 @@
 
 This project is a Laravel 13 application and requires PHP 8.3 or newer, Composer, MySQL or MariaDB, and a working SMTP mailbox for email OTP.
 
+## Server Requirements
+
+Your host must provide:
+
+- PHP 8.3 or newer
+- Composer, or a way to upload a ready-made `vendor/` folder
+- MySQL or MariaDB
+- SMTP email credentials for OTP messages
+- PHP extensions: `bcmath`, `ctype`, `curl`, `dom`, `fileinfo`, `filter`, `hash`, `mbstring`, `openssl`, `pdo`, `pdo_mysql`, `tokenizer`, `xml`, `xmlreader`, `xmlwriter`, and `zip`
+- `gd` is recommended because the app accepts image uploads
+
+The server web root should point to Laravel's `public` folder. On shared hosting, that usually means copying only the contents of `public` into `public_html` and keeping the rest of the Laravel project outside the public web folder.
+
 ## Production Environment
 
 Copy `.env.example` to `.env` on the server, then fill in:
@@ -10,9 +23,18 @@ Copy `.env.example` to `.env` on the server, then fill in:
 - `APP_URL`: your live `https://...` domain
 - `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`
 - `MAIL_HOST`, `MAIL_PORT`, `MAIL_USERNAME`, `MAIL_PASSWORD`, `MAIL_FROM_ADDRESS`
-- `ADMIN_PASSWORD`: use a strong password, not the local fallback
+- `ADMIN_PASSWORD`: required; use a strong password because the app has no built-in fallback
+
+Keep these production values:
+
+- `APP_ENV=production`
+- `APP_DEBUG=false`
+- `SESSION_SECURE_COOKIE=true` when the site is running on HTTPS
+- `FILESYSTEM_DISK=public` so uploaded item images display through `/storage/...`
 
 There are no SMS or Twilio values. OTP is email-only.
+
+The local `php.bat` and `artisan.bat` files are Windows helper files for this Laragon/XAMPP computer. They are not needed on the live server.
 
 ## Uploaded Images
 
@@ -51,7 +73,7 @@ If your host forces the site to use `public_html`, put only the contents of the 
 - `js/`
 - `images/`
 - `storage` symlink pointing to `../lost-found-system/storage/app/public`
-- `build/` only if you later generate Vite assets
+- `build/` if you deploy or generate Vite assets
 
 Do not put these inside `public_html`:
 
@@ -79,6 +101,15 @@ $app = require_once __DIR__.'/../lost-found-system/bootstrap/app.php';
 ```
 
 Use your actual Laravel project folder name if it is not `lost-found-system`.
+
+## Writable Folders
+
+Laravel must be able to write to:
+
+- `storage/`
+- `bootstrap/cache/`
+
+If these folders are not writable, log files, sessions, cached config, uploaded images, and compiled views can fail.
 
 ## cPanel or Shared Hosting
 

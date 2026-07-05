@@ -2599,6 +2599,7 @@ body.dark-mode .mobile-profile-menu form button{
     }
 }
 </style>
+    <link rel="stylesheet" href="{{ asset('css/student-dark-mode.css') }}?v=21">
 </head>
 
 <body>
@@ -3121,21 +3122,56 @@ body.dark-mode .mobile-profile-menu form button{
 <?php endif; ?>
 
 <script>
-    if (localStorage.getItem('studentTheme') === 'dark') {
-        document.body.classList.add('dark-mode');
+    const homeThemeKeys = ['siteTheme', 'studentTheme', 'adminTheme'];
+
+    function getHomeTheme(){
+        const siteTheme = localStorage.getItem('siteTheme');
+
+        if (siteTheme === 'dark' || siteTheme === 'light') {
+            return siteTheme;
+        }
+
+        if (homeThemeKeys.some(function (key) { return localStorage.getItem(key) === 'dark'; })) {
+            return 'dark';
+        }
+
+        return 'light';
     }
 
+    function saveHomeTheme(theme){
+        homeThemeKeys.forEach(function (key) {
+            localStorage.setItem(key, theme);
+        });
+    }
+
+    function applyHomeTheme(theme){
+        const isDark = theme === 'dark';
+
+        document.documentElement.classList.toggle('dark-mode', isDark);
+        document.documentElement.classList.toggle('admin-dark', isDark);
+        document.body.classList.toggle('dark-mode', isDark);
+        document.body.classList.toggle('admin-dark', isDark);
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    }
+
+    applyHomeTheme(getHomeTheme());
+
     document.querySelectorAll('.js-theme-toggle').forEach(function (button) {
+        if (button.dataset.themeBound === 'true') {
+            return;
+        }
+
+        button.dataset.themeBound = 'true';
         button.addEventListener('click', function (event) {
+            event.preventDefault();
             event.stopPropagation();
             closeMobilePanels();
-            document.body.classList.toggle('dark-mode');
 
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('studentTheme', 'dark');
-            } else {
-                localStorage.setItem('studentTheme', 'light');
-            }
+            const nextTheme = document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark';
+
+            saveHomeTheme(nextTheme);
+            applyHomeTheme(nextTheme);
         });
     });
 
