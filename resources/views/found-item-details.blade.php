@@ -454,7 +454,7 @@
 
                 <div class="detail-box">
                     <span>Date Found</span>
-                    <p><?php echo e($item->date_found); ?></p>
+                    <p><?php echo e($item->date_found ? \Illuminate\Support\Carbon::parse($item->date_found)->format('d/m/Y') : 'Not provided'); ?></p>
                 </div>
 
                 <div class="detail-box">

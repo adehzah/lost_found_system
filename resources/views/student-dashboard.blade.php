@@ -500,8 +500,53 @@
                 width:100%;
             }
         }
+
+        @media(max-width:640px){
+            .table-wrap{
+                overflow:visible;
+            }
+
+            table,
+            tbody,
+            tr,
+            td{
+                display:block;
+                width:100%;
+                min-width:0;
+            }
+
+            table{
+                border-collapse:separate;
+            }
+
+            thead{
+                display:none;
+            }
+
+            tbody tr{
+                padding:14px 16px;
+                border-top:1px solid var(--line);
+            }
+
+            tbody td{
+                display:grid;
+                grid-template-columns:120px minmax(0, 1fr);
+                gap:12px;
+                padding:7px 0;
+                border-top:none;
+                overflow-wrap:anywhere;
+            }
+
+            tbody td::before{
+                content:attr(data-label);
+                color:var(--muted);
+                font-size:12px;
+                font-weight:700;
+                text-transform:uppercase;
+            }
+        }
     </style>
-    <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=21">
+    <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>?v=22">
 </head>
 
 <body>
@@ -678,13 +723,13 @@
                     <tbody>
                         <?php foreach($lostItems as $item): ?>
                             <tr>
-                                <td>
+                                <td data-label="Item">
                                     <span class="item-name"><?php echo e($item->item_name); ?></span>
                                     <span class="record-note"><?php echo e($item->description ?? 'No description provided'); ?></span>
                                 </td>
-                                <td><?php echo e($item->location_lost ?? 'Not provided'); ?></td>
-                                <td><?php echo e($item->date_lost ?? 'Not provided'); ?></td>
-                                <td>
+                                <td data-label="Location Lost"><?php echo e($item->location_lost ?? 'Not provided'); ?></td>
+                                <td data-label="Date Lost"><?php echo e($item->date_lost ? \Illuminate\Support\Carbon::parse($item->date_lost)->format('d/m/Y') : 'Not provided'); ?></td>
+                                <td data-label="Status">
                                     <span class="status status-<?php echo e(str_replace(' ', '-', strtolower($item->status ?? 'missing'))); ?>">
                                         <?php echo e(ucfirst($item->status ?? 'missing')); ?>
                                     </span>
@@ -729,13 +774,13 @@
                     <tbody>
                         <?php foreach($foundItems as $item): ?>
                             <tr>
-                                <td>
+                                <td data-label="Item">
                                     <span class="item-name"><?php echo e($item->item_name); ?></span>
                                     <span class="record-note"><?php echo e($item->description ?? 'No description provided'); ?></span>
                                 </td>
-                                <td><?php echo e($item->location_found ?? 'Not provided'); ?></td>
-                                <td><?php echo e($item->date_found ?? 'Not provided'); ?></td>
-                                <td>
+                                <td data-label="Location Found"><?php echo e($item->location_found ?? 'Not provided'); ?></td>
+                                <td data-label="Date Found"><?php echo e($item->date_found ? \Illuminate\Support\Carbon::parse($item->date_found)->format('d/m/Y') : 'Not provided'); ?></td>
+                                <td data-label="Status">
                                     <span class="status status-<?php echo e(str_replace(' ', '-', strtolower($item->status ?? 'awaiting claim'))); ?>">
                                         <?php echo e(ucfirst($item->status ?? 'awaiting claim')); ?>
                                     </span>
@@ -779,16 +824,16 @@
                     <tbody>
                         <?php foreach($claims as $claim): ?>
                             <tr>
-                                <td>
+                                <td data-label="Claimed Item">
                                     <span class="item-name"><?php echo e($claim->foundItem->item_name ?? 'Deleted item'); ?></span>
                                     <span class="record-note">Claim #<?php echo e($claim->id); ?></span>
                                 </td>
 
-                                <td>
+                                <td data-label="Proof">
                                     <?php echo e($claim->proof_description ?? 'No proof provided'); ?>
                                 </td>
 
-                                <td>
+                                <td data-label="Status">
                                     <span class="status status-<?php echo e(str_replace(' ', '-', strtolower($claim->status ?? 'pending'))); ?>">
                                         <?php echo e(ucfirst($claim->status ?? 'pending')); ?>
                                     </span>

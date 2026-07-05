@@ -293,7 +293,7 @@
 
                 <div class="detail-box">
                     <span>Date Lost</span>
-                    <p><?php echo e($item->date_lost); ?></p>
+                    <p><?php echo e($item->date_lost ? \Illuminate\Support\Carbon::parse($item->date_lost)->format('d/m/Y') : 'Not provided'); ?></p>
                 </div>
 
                 <div class="detail-box">

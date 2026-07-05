@@ -1044,3 +1044,76 @@ html.dark-mode .modal-actions,
 body.dark-mode .modal-actions{
     border-color:#1E293B !important;
 }
+
+/* Student dashboard dark-mode polish */
+html.dark-mode .profile-panel,
+body.dark-mode .profile-panel{
+    background:#0B1220 !important;
+    color:#F8FAFC !important;
+    border-color:#334155 !important;
+    box-shadow:none !important;
+}
+
+html.dark-mode .profile-head strong,
+body.dark-mode .profile-head strong{
+    color:#F8FAFC !important;
+}
+
+html.dark-mode .profile-head span,
+body.dark-mode .profile-head span,
+html.dark-mode .profile-details,
+body.dark-mode .profile-details,
+html.dark-mode .profile-details span,
+body.dark-mode .profile-details span{
+    color:#CBD5E1 !important;
+}
+
+html.dark-mode .profile-details span,
+body.dark-mode .profile-details span{
+    overflow-wrap:anywhere;
+}
+
+html.dark-mode .meta-pill,
+body.dark-mode .meta-pill{
+    background:#111827 !important;
+    color:#E5E7EB !important;
+    border-color:#334155 !important;
+}
+
+html.dark-mode .section-link,
+body.dark-mode .section-link{
+    background:#123524 !important;
+    color:#86EFAC !important;
+    border:1px solid #1F6B44 !important;
+}
+
+html.dark-mode .summary-icon,
+body.dark-mode .summary-icon{
+    background:#123524 !important;
+    color:#86EFAC !important;
+}
+
+html.dark-mode .summary-icon.blue,
+body.dark-mode .summary-icon.blue{
+    background:#172554 !important;
+    color:#93C5FD !important;
+}
+
+html.dark-mode .summary-icon.amber,
+body.dark-mode .summary-icon.amber{
+    background:#422006 !important;
+    color:#FCD34D !important;
+}
+
+@media(max-width:640px){
+    html.dark-mode tbody tr,
+    body.dark-mode tbody tr{
+        background:#111827 !important;
+        border-top-color:#1E293B !important;
+    }
+
+    html.dark-mode tbody td::before,
+    body.dark-mode tbody td::before{
+        color:#94A3B8 !important;
+    }
+}

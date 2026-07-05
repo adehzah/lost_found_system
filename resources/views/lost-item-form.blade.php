@@ -226,6 +226,13 @@
             transition:0.25s;
         }
 
+        .date-input{
+            height:52px;
+            min-height:52px;
+            line-height:1.2;
+            letter-spacing:0;
+        }
+
         input:focus, textarea:focus, select:focus{
             border-color:#1E8E5A;
             background:white;
@@ -379,6 +386,15 @@
                 font-size:12.5px !important;
                 white-space:nowrap !important;
             }
+
+            .date-input{
+                width:100% !important;
+                max-width:100% !important;
+                height:52px !important;
+                min-height:52px !important;
+                padding:12px 14px !important;
+                font-size:16px !important;
+            }
         }
     </style>
     <link rel="stylesheet" href="<?php echo asset('css/student-dark-mode.css'); ?>">
@@ -500,7 +516,7 @@
 
                 <div class="form-group">
                     <label>Date Lost</label>
-                    <input type="date" name="date_lost" required>
+                    <input type="text" name="date_lost" class="date-input" placeholder="dd/mm/yyyy" inputmode="numeric" maxlength="10" pattern="\d{2}/\d{2}/\d{4}" required>
                 </div>
 
                 <div class="form-group full">
@@ -532,6 +548,20 @@
     </div>
 
 </div>
+<script>
+    document.querySelectorAll('.date-input').forEach(function (input) {
+        input.addEventListener('input', function () {
+            var value = input.value.replace(/\D/g, '').slice(0, 8);
+            if (value.length > 4) {
+                input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4);
+            } else if (value.length > 2) {
+                input.value = value.slice(0, 2) + '/' + value.slice(2);
+            } else {
+                input.value = value;
+            }
+        });
+    });
+</script>
 <script src="<?php echo asset('js/student-theme.js'); ?>"></script>
 </body>
 </html>

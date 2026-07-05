@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LostItem;
 use App\Models\Student;
+use Illuminate\Support\Carbon;
 
 class LostItemController extends Controller
 {
@@ -35,7 +36,7 @@ class LostItemController extends Controller
     'category' => 'required|string|max:255',
     'description' => 'required|string',
     'location_lost' => 'required|string|max:255',
-    'date_lost' => 'required|date',
+    'date_lost' => 'required|date_format:d/m/Y',
     'contact_number' => 'required|string|max:30',
     'image' => 'nullable|image|max:4096'
 ]);  
@@ -59,7 +60,7 @@ class LostItemController extends Controller
             'category' => $request->category,
             'description' => $request->description,
             'location_lost' => $request->location_lost,
-            'date_lost' => $request->date_lost,
+            'date_lost' => Carbon::createFromFormat('d/m/Y', $request->date_lost)->format('Y-m-d'),
             'contact_number' => $request->contact_number,
             'image' => $imagePath,
             'status' => 'missing',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FoundItem;
 use App\Models\Student;
+use Illuminate\Support\Carbon;
 
 class FoundItemController extends Controller
 {
@@ -35,7 +36,7 @@ class FoundItemController extends Controller
             'category' => 'required|string|max:255',
             'description' => 'required|string',
             'location_found' => 'required|string|max:255',
-            'date_found' => 'required|date',
+            'date_found' => 'required|date_format:d/m/Y',
             'contact_number' => 'required|string|max:30',
             'image' => 'nullable|image|max:4096',
         ]);
@@ -59,7 +60,7 @@ class FoundItemController extends Controller
             'category' => $request->category,
             'description' => $request->description,
             'location_found' => $request->location_found,
-            'date_found' => $request->date_found,
+            'date_found' => Carbon::createFromFormat('d/m/Y', $request->date_found)->format('Y-m-d'),
             'contact_number' => $request->contact_number,
             'image' => $imagePath,
             'status' => 'awaiting claim',
