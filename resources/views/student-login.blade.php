@@ -8,7 +8,7 @@
         rel="preload"
         as="image"
         href="{{ asset('images/ibbu-register-bg-1280.jpg') }}"
-        imagesrcset="{{ asset('images/ibbu-register-bg-768.jpg') }} 768w, {{ asset('images/ibbu-register-bg-1280.jpg') }} 1280w"
+        imagesrcset="{{ asset('images/ibbu-register-bg-768.jpg') }} 1280w, {{ asset('images/ibbu-register-bg-1280.jpg') }} 1535w"
         imagesizes="100vw"
     >
 
