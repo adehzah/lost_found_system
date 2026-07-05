@@ -245,12 +245,15 @@
 
         .date-picker-native{
             position:absolute;
-            right:0;
-            bottom:0;
-            width:1px;
-            height:1px;
+            right:8px;
+            top:50%;
+            transform:translateY(-50%);
+            width:38px;
+            height:38px;
             opacity:0;
-            pointer-events:none;
+            pointer-events:auto;
+            cursor:pointer;
+            z-index:3;
         }
 
         .calendar-btn{
@@ -268,6 +271,7 @@
             background:white;
             color:#1E8E5A;
             cursor:pointer;
+            z-index:2;
         }
 
         .calendar-btn svg{

@@ -165,8 +165,8 @@ Route::post('/admin/claims/{id}/reject', [AdminController::class, 'rejectClaim']
 */
 
 Route::get('/admin/users', [AdminController::class, 'users']);
+Route::match(['get', 'post'], '/admin/users/{id}/delete', [AdminController::class, 'deleteStudent']);
 Route::get('/admin/users/{id}', [AdminController::class, 'studentDetails']);
-Route::post('/admin/users/{id}/delete', [AdminController::class, 'deleteStudent']);
 Route::get('/admin/students', [AdminController::class, 'users']);
 
 Route::get('/admin/messages', [AdminController::class, 'messages']);
