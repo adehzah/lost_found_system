@@ -31,6 +31,7 @@ Keep these production values:
 - `APP_DEBUG=false`
 - `SESSION_SECURE_COOKIE=true` when the site is running on HTTPS
 - `FILESYSTEM_DISK=public` so uploaded item images display through `/storage/...`
+- `UPLOADS_DISK=public` for normal hosting, or `UPLOADS_DISK=s3` for Laravel Cloud Object Storage
 
 There are no SMS or Twilio values. OTP is email-only.
 

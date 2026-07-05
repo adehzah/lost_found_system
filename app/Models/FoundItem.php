@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class FoundItem extends Model
 {
@@ -22,5 +23,12 @@ class FoundItem extends Model
     public function claims()
     {
         return $this->hasMany(Claim::class, 'found_item_id');
+    }
+
+    public function getImageUrlAttribute(): ?string
+    {
+        return $this->image
+            ? Storage::disk(config('filesystems.uploads_disk'))->url($this->image)
+            : null;
     }
 }

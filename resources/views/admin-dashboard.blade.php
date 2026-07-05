@@ -1278,7 +1278,7 @@
                                         <a href="/lost-items/{{ $item->id }}" class="activity-item">
                                             @if($item->image)
                                                 <div class="activity-thumb">
-                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->item_name }} image">
+                                                    <img src="{{ $item->image_url }}" alt="{{ $item->item_name }} image">
                                                 </div>
                                             @else
                                                 <div class="activity-thumb is-empty">
@@ -1307,7 +1307,7 @@
                                         <a href="/found-items/{{ $item->id }}" class="activity-item">
                                             @if($item->image)
                                                 <div class="activity-thumb">
-                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->item_name }} image">
+                                                    <img src="{{ $item->image_url }}" alt="{{ $item->item_name }} image">
                                                 </div>
                                             @else
                                                 <div class="activity-thumb is-empty">

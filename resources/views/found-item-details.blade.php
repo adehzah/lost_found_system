@@ -412,7 +412,7 @@
 
         <div class="image-section">
             <?php if($item->image): ?>
-                <img src="<?php echo e(asset('storage/' . $item->image)); ?>" class="item-image" alt="Found Item Image">
+                <img src="<?php echo e($item->image_url); ?>" class="item-image" alt="Found Item Image">
             <?php else: ?>
                 <div class="no-image">No Image Available</div>
             <?php endif; ?>

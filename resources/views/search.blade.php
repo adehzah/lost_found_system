@@ -269,7 +269,7 @@
                         <div class="item-card">
                             <div class="item-image">
                                 <?php if($item->image): ?>
-                                    <img src="<?php echo asset('storage/' . $item->image); ?>" alt="Found Item">
+                                    <img src="<?php echo e($item->image_url); ?>" alt="Found Item">
                                 <?php else: ?>
                                     <div class="no-image">No Image</div>
                                 <?php endif; ?>
@@ -307,7 +307,7 @@
                         <div class="item-card">
                             <div class="item-image">
                                 <?php if($item->image): ?>
-                                    <img src="<?php echo asset('storage/' . $item->image); ?>" alt="Lost Item">
+                                    <img src="<?php echo e($item->image_url); ?>" alt="Lost Item">
                                 <?php else: ?>
                                     <div class="no-image">No Image</div>
                                 <?php endif; ?>

@@ -389,7 +389,7 @@
 
                     <div class="item-image">
                         <?php if(!empty($item->image)): ?>
-                            <img src="<?php echo asset('storage/' . $item->image); ?>" alt="Found Item Image">
+                            <img src="<?php echo e($item->image_url); ?>" alt="Found Item Image">
                         <?php else: ?>
                             <div class="no-image">
                                 <svg viewBox="0 0 24 24" fill="none">

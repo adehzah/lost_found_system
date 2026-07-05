@@ -230,10 +230,10 @@ class StudentAuthController extends Controller
             $oldProfilePicture = $student->profile_picture;
 
             $student->profile_picture = $request->file('profile_picture')
-                ->store('profile_pictures', 'public');
+                ->store('profile_pictures', config('filesystems.uploads_disk'));
 
-            if ($oldProfilePicture && Storage::disk('public')->exists($oldProfilePicture)) {
-                Storage::disk('public')->delete($oldProfilePicture);
+            if ($oldProfilePicture && Storage::disk(config('filesystems.uploads_disk'))->exists($oldProfilePicture)) {
+                Storage::disk(config('filesystems.uploads_disk'))->delete($oldProfilePicture);
             }
         }
 

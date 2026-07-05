@@ -2706,7 +2706,7 @@ body.dark-mode .mobile-profile-menu form button{
                 <div class="mobile-profile-wrap">
                     <button type="button" class="mobile-profile-btn js-mobile-profile-toggle" aria-label="Open profile menu">
                         <?php if(isset($currentStudent) && $currentStudent && $currentStudent->profile_picture): ?>
-                            <img src="<?php echo asset('storage/' . $currentStudent->profile_picture); ?>" alt="Profile">
+                            <img src="<?php echo e($currentStudent->profile_picture_url); ?>" alt="Profile">
                         <?php else: ?>
                             <?php echo e(strtoupper(substr(session('student_name') ?? 'U', 0, 1))); ?>
                         <?php endif; ?>
@@ -2716,7 +2716,7 @@ body.dark-mode .mobile-profile-menu form button{
                         <div class="mobile-profile-mini">
     <div class="mobile-profile-mini-avatar">
         <?php if(isset($currentStudent) && $currentStudent && $currentStudent->profile_picture): ?>
-            <img src="<?php echo asset('storage/' . $currentStudent->profile_picture); ?>" alt="Profile">
+            <img src="<?php echo e($currentStudent->profile_picture_url); ?>" alt="Profile">
         <?php else: ?>
             <?php echo e(strtoupper(substr(session('student_name') ?? 'U', 0, 1))); ?>
         <?php endif; ?>
@@ -2789,7 +2789,7 @@ body.dark-mode .mobile-profile-menu form button{
     <button type="button" class="profile-trigger">
         <span class="profile-avatar">
             <?php if(isset($currentStudent) && $currentStudent && $currentStudent->profile_picture): ?>
-                <img src="<?php echo asset('storage/' . $currentStudent->profile_picture); ?>" alt="Profile">
+                <img src="<?php echo e($currentStudent->profile_picture_url); ?>" alt="Profile">
             <?php else: ?>
                 <?php echo e(strtoupper(substr(session('student_name'), 0, 1))); ?>
             <?php endif; ?>
@@ -2805,7 +2805,7 @@ body.dark-mode .mobile-profile-menu form button{
         <div class="profile-mini-box">
             <span class="profile-avatar profile-mini-avatar">
                 <?php if(isset($currentStudent) && $currentStudent && $currentStudent->profile_picture): ?>
-                    <img src="<?php echo asset('storage/' . $currentStudent->profile_picture); ?>" alt="Profile">
+                    <img src="<?php echo e($currentStudent->profile_picture_url); ?>" alt="Profile">
                 <?php else: ?>
                     <?php echo e(strtoupper(substr(session('student_name'), 0, 1))); ?>
                 <?php endif; ?>
@@ -2972,7 +2972,7 @@ body.dark-mode .mobile-profile-menu form button{
                     <a href="/found-items/<?php echo e($item->id); ?>" class="report-card">
 
                         <?php if($item->image): ?>
-                            <img src="<?php echo asset('storage/' . $item->image); ?>" class="report-image" alt="Found Item">
+                            <img src="<?php echo e($item->image_url); ?>" class="report-image" alt="Found Item">
                         <?php else: ?>
                             <div class="report-placeholder">✓</div>
                         <?php endif; ?>
@@ -2997,7 +2997,7 @@ body.dark-mode .mobile-profile-menu form button{
                     <a href="/lost-items/<?php echo e($item->id); ?>" class="report-card">
 
                         <?php if($item->image): ?>
-                            <img src="<?php echo asset('storage/' . $item->image); ?>" class="report-image" alt="Lost Item">
+                            <img src="<?php echo e($item->image_url); ?>" class="report-image" alt="Lost Item">
                         <?php else: ?>
                             <div class="report-placeholder">🔍</div>
                         <?php endif; ?>
@@ -3047,7 +3047,7 @@ body.dark-mode .mobile-profile-menu form button{
 
                     <div class="modal-avatar">
                         <?php if($currentStudent->profile_picture): ?>
-                            <img src="<?php echo asset('storage/' . $currentStudent->profile_picture); ?>" alt="Profile Picture">
+                            <img src="<?php echo e($currentStudent->profile_picture_url); ?>" alt="Profile Picture">
                         <?php else: ?>
                             <span>
                                 <?php echo e(strtoupper(substr($currentStudent->full_name, 0, 1))); ?>

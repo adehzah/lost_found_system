@@ -51,7 +51,7 @@ class ClaimController extends Controller
          $proofImagePath = null;
 
 if ($request->hasFile('proof_image')) {
-    $proofImagePath = $request->file('proof_image')->store('claim_proofs', 'public');
+    $proofImagePath = $request->file('proof_image')->store('claim_proofs', config('filesystems.uploads_disk'));
 }
         Claim::create([
             'found_item_id' => $foundItem->id,

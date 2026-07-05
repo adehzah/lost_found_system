@@ -253,7 +253,7 @@
 
         <div class="image-section">
             <?php if($item->image): ?>
-                <img src="<?php echo asset('storage/' . $item->image); ?>" alt="Lost Item Image" class="item-image">
+                <img src="<?php echo e($item->image_url); ?>" alt="Lost Item Image" class="item-image">
             <?php else: ?>
                 <div class="no-image">?</div>
             <?php endif; ?>

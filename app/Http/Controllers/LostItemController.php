@@ -49,7 +49,7 @@ class LostItemController extends Controller
         $imagePath = null;
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('lost_items', 'public');
+            $imagePath = $request->file('image')->store('lost_items', config('filesystems.uploads_disk'));
         }
 
         LostItem::create([

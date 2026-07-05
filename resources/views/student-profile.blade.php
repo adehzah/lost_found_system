@@ -341,7 +341,7 @@
 
             <div class="avatar-box">
                 <?php if($student->profile_picture): ?>
-                    <img src="<?php echo asset('storage/' . $student->profile_picture); ?>" alt="Profile Picture">
+                    <img src="<?php echo e($student->profile_picture_url); ?>" alt="Profile Picture">
                 <?php else: ?>
                     <span class="avatar-letter">
                         <?php echo e(strtoupper(substr($student->full_name, 0, 1))); ?>

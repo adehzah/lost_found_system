@@ -296,7 +296,7 @@ body.admin-dark .claim-proof-image img{
     <label>Uploaded Proof Image</label>
 
     <?php if($claim->proof_image): ?>
-        <img src="<?php echo asset('storage/' . $claim->proof_image); ?>" alt="Claim Proof Image">
+        <img src="<?php echo e($claim->proof_image_url); ?>" alt="Claim Proof Image">
     <?php else: ?>
         <div class="no-proof-image">
             No proof image was uploaded by the claimant.

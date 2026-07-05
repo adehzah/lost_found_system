@@ -49,7 +49,7 @@ class FoundItemController extends Controller
         $imagePath = null;
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('found_items', 'public');
+            $imagePath = $request->file('image')->store('found_items', config('filesystems.uploads_disk'));
         }
 
         FoundItem::create([
